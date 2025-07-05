@@ -30,18 +30,3 @@ public class Product {
 
 
 }
-
-//Date expirationDate;// for products expire.
-//double weight; // for products require shipping.
-//
-//    /** For products expire. */
-//    public  Product(String name, double price, int quantity, Date expirationDate) {
-//        this(name, price, quantity);
-//        this.expirationDate = expirationDate;
-//    }
-//
-//    /** For products expire and require shipping. */
-//    public Product(String name, double price, int quantity, Date expirationDate, double weight) {
-//        this(name, price, quantity, expirationDate);
-//        this.weight = weight;
-//    }

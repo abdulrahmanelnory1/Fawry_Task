@@ -13,6 +13,7 @@ public class ShippingService {
 
     public static void shippingService(Cart cart) {
 
+        // store Shippable products.
         List<Shippable> items = new ArrayList<>();
 
         HashMap<Product, Integer> products = cart.getProducts();
@@ -28,24 +29,25 @@ public class ShippingService {
         }
 
         System.out.println("** Shipment notice ** ");
+
         double totalWeight = 0;
 
         if (!items.isEmpty()) {
 
             for (Shippable item : items) {
 
-                String strWeight;
                 long amount = countOccurrences(items, item);
                 String name = item.getName();
                 double weight = item.getWeight() *  amount;
-                weight = Math.round(weight * 10.0) / 10.0;
+                weight = Math.round(item.getWeight() *  amount * 10.0) / 10.0;
+                totalWeight += weight; // track total weight.
 
+                // handle format
+                String strWeight;
                 if (weight < 1000)
                     strWeight = String.valueOf(weight) + "g";
                 else
                     strWeight = String.valueOf(weight / 1000) + "kg";
-
-                totalWeight += weight;
 
 
                 // handle format

@@ -20,14 +20,12 @@ public class Checkout {
         // Get subtotal (sum of all items’ prices)
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
 
-
             Product product = entry.getKey();
             Integer quantity = entry.getValue();
 
             // If product is expired.
             if(product instanceof Expirable && ((Expirable) product).isExpired())
                 throw new IllegalStateException("ERROR: The product is expired.");
-
 
             totalPrice += product.getPrice() * quantity;
         }

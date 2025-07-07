@@ -1,20 +1,12 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-
 public class ShippingService {
-
-
-    private static long countOccurrences(List<Shippable> items, Shippable target) {
-        return items.stream().filter(item -> item.equals(target)).count();
-    }
 
     public static void shippingService(Cart cart) {
 
         // store Shippable products.
-        List<Shippable> items = new ArrayList<>();
+        HashMap<Shippable, Integer> items = new HashMap<>();
 
         HashMap<Product, Integer> products = cart.getProducts();
 
@@ -22,51 +14,58 @@ public class ShippingService {
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
 
             Product product = entry.getKey();
+            Integer amount = entry.getValue();
 
-            if(product instanceof Shippable) {
-                items.add((Shippable) product);
+            if (product instanceof Shippable) {
+                items.put((Shippable) product, amount);
             }
         }
-
-        System.out.println("** Shipment notice ** ");
 
         double totalWeight = 0;
 
-        if (!items.isEmpty()) {
+        // if there is no shippable products, so there is no shippable service, return and do nothing.
+        if(items.isEmpty())
+            return;
 
-            for (Shippable item : items) {
+        /* Printing each product name, and its amount and its total weight. */
 
-                long amount = countOccurrences(items, item);
-                String name = item.getName();
-                double weight = item.getWeight() *  amount;
-                weight = Math.round(item.getWeight() *  amount * 10.0) / 10.0;
-                totalWeight += weight; // track total weight.
+        System.out.println("** Shipment notice ** ");
 
-                // handle format
-                String strWeight;
-                if (weight < 1000)
-                    strWeight = String.valueOf(weight) + "g";
-                else
-                    strWeight = String.valueOf(weight / 1000) + "kg";
+        for (Map.Entry<Shippable, Integer> entry : items.entrySet()) {
 
+            Shippable item = entry.getKey();
+            Integer amount = entry.getValue();
 
-                // handle format
-                while(name.length() < 13)
-                    name += " ";
+            String name = item.getName();
+            double productTotalWeight = Math.round(item.getWeight() * amount * 10.0) / 10.0;
 
-                System.out.println(amount + "x " + name + "        " + strWeight);
-            }
+            totalWeight += productTotalWeight; // track total weight.
 
-            totalWeight  = Math.round(totalWeight * 10.0) / 10.0;
+            String strProductTotalWeight;
 
-            String strTotalWeight;
-
-            if (totalWeight < 1000)
-                strTotalWeight = String.valueOf(totalWeight) + "g";
+            if (productTotalWeight < 1000)
+                strProductTotalWeight = String.valueOf((int)productTotalWeight) + "g";
             else
-                strTotalWeight = String.valueOf(totalWeight / 1000) + "kg";
+                strProductTotalWeight = String.valueOf(productTotalWeight / 1000) + "kg";
 
-            System.out.println("Total package weight " + strTotalWeight + "\n");
+            // handle format
+            while (name.length() < 13)
+                name += " ";
+
+            System.out.println(amount + "x " + name + "        " + strProductTotalWeight);
         }
+
+        /* printing total weight. */
+
+        totalWeight = Math.round(totalWeight * 10.0) / 10.0;
+
+        String strTotalWeight;
+
+        if (totalWeight < 1000)
+            strTotalWeight = String.valueOf((int)totalWeight) + "g";
+        else
+            strTotalWeight = String.valueOf(totalWeight / 1000) + "kg";
+
+        System.out.println("Total package weight    " + strTotalWeight + "\n");
     }
 }

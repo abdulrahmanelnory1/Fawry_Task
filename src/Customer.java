@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Customer {
 
-    String name;
-    double balance;
+    private String name;
+    private double balance;
 
     public Customer(String name, double balance) {
         this.name = name;

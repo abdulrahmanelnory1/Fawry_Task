@@ -5,7 +5,36 @@ Total package weight    400g
 
 ** Checkout receipt ** 
 2x cheese               300.0
+1x mobile               100.0public class ECommerceSystem {
+
+    public static void main(String[] args) {
+
+        Product product1 = new Product("mobile", 100, 10);
+
+        Cart cart1 = new Cart();
+        cart1.add(product1, 1);
+        Customer customer1 = new Customer("Ahmed", 0);
+
+        ShippingService.shippingService(cart1);
+        Checkout.checkout(customer1,cart1);
+    }
+}
+
+---------------------------------------------------------------------------
+
+C:\Users\hp\.jdks\openjdk-21.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\lib\idea_rt.jar=50296:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\hp\OneDrive\Desktop\cs16b\cs16b\e-commerce system\out\production\e-commerce system" ECommerceSystem
+** Checkout receipt ** 
 1x mobile               100.0
+-----------------------------
+Subtotal                100.0
+Shipping                0.0
+Amount                  100.0
+Exception in thread "main" java.lang.IllegalStateException: ERROR: The customer balance is insufficient.
+	at Checkout.checkout(Checkout.java:58)
+	at ECommerceSystem.main(ECommerceSystem.java:17)
+
+Process finished with exit code 1
+
 -----------------------------
 Subtotal                400.0
 Shipping                36.0

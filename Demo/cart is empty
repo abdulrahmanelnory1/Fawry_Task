@@ -1,6 +1,22 @@
-C:\Users\hp\.jdks\openjdk-21.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\lib\idea_rt.jar=49869:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\hp\OneDrive\Desktop\cs16b\cs16b\e-commerce system\out\production\e-commerce system" ECommerceSystem
+public class ECommerceSystem {
+
+    public static void main(String[] args) {
+
+        Product product1 = new Product("mobile", 100, 10);
+
+        Cart cart1 = new Cart();
+        Customer customer1 = new Customer("Ahmed", 1000);
+
+        ShippingService.shippingService(cart1);
+        Checkout.checkout(customer1,cart1);
+    }
+}
+
+------------------------------------------------------------------
+
+C:\Users\hp\.jdks\openjdk-21.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\lib\idea_rt.jar=50307:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\hp\OneDrive\Desktop\cs16b\cs16b\e-commerce system\out\production\e-commerce system" ECommerceSystem
 Exception in thread "main" java.lang.IllegalStateException: ERROR: The cart is empty
 	at Checkout.checkout(Checkout.java:15)
-	at ECommerceSystem.main(ECommerceSystem.java:29)
+	at ECommerceSystem.main(ECommerceSystem.java:16)
 
 Process finished with exit code 1

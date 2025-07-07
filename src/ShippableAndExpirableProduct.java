@@ -16,7 +16,7 @@ public class ShippableAndExpirableProduct extends Product implements Expirable, 
 
     @Override
     public String getName(){
-        return name;
+        return super.getName();
     }
     @Override
     public double getWeight(){

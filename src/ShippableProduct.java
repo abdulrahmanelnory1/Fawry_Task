@@ -11,18 +11,8 @@ public class ShippableProduct extends Product implements Shippable {
     }
 
     @Override
-    public String getName(){
-        return name;
-    }
-
-    @Override
     public double getWeight(){
         return weight;
-    }
-
-    @Override
-    public Integer getQuantity() {
-        return this.quantity;
     }
 
 

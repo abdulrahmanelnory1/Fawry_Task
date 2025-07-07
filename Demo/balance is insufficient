@@ -1,11 +1,4 @@
-C:\Users\hp\.jdks\openjdk-21.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\lib\idea_rt.jar=49873:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\hp\OneDrive\Desktop\cs16b\cs16b\e-commerce system\out\production\e-commerce system" ECommerceSystem
-** Shipment notice ** 
-2x cheese               400g
-Total package weight    400g
-
-** Checkout receipt ** 
-2x cheese               300.0
-1x mobile               100.0public class ECommerceSystem {
+public class ECommerceSystem {
 
     public static void main(String[] args) {
 
@@ -32,15 +25,5 @@ Amount                  100.0
 Exception in thread "main" java.lang.IllegalStateException: ERROR: The customer balance is insufficient.
 	at Checkout.checkout(Checkout.java:58)
 	at ECommerceSystem.main(ECommerceSystem.java:17)
-
-Process finished with exit code 1
-
------------------------------
-Subtotal                400.0
-Shipping                36.0
-Amount                  436.0
-Exception in thread "main" java.lang.IllegalStateException: ERROR: The customer balance is insufficient.
-	at Checkout.checkout(Checkout.java:58)
-	at ECommerceSystem.main(ECommerceSystem.java:29)
 
 Process finished with exit code 1

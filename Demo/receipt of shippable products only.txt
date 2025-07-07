@@ -4,11 +4,12 @@ public class ECommerceSystem {
 
     public static void main(String[] args) {
 
-        Product product1 = new Product("mobile", 800, 10);
+        Product product2 = new ShippableProduct("cheese", 100, 10, 300);
+        Product product3 = new ShippableAndExpirableProduct("TV", 400, 2, LocalDate.now().plusYears(2), 1300);
 
         Cart cart1 = new Cart();
-        cart1.add(product1, 2);
-
+        cart1.add(product2, 2);
+        cart1.add(product3, 2);
 
         Customer customer1 = new Customer("Ahmed", 10000);
 
@@ -17,14 +18,20 @@ public class ECommerceSystem {
     }
 }
 
---------------------------------------------------------------------
+-----------------------------------------------------------------------------
 
-C:\Users\hp\.jdks\openjdk-21.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\lib\idea_rt.jar=50343:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\hp\OneDrive\Desktop\cs16b\cs16b\e-commerce system\out\production\e-commerce system" ECommerceSystem
+C:\Users\hp\.jdks\openjdk-21.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\lib\idea_rt.jar=50349:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\hp\OneDrive\Desktop\cs16b\cs16b\e-commerce system\out\production\e-commerce system" ECommerceSystem
+** Shipment notice ** 
+2x cheese               600g
+2x TV                   2.6kg
+Total package weight    3.2kg
+
 ** Checkout receipt ** 
-2x mobile               1600.0
+2x cheese               200.0
+2x TV                   800.0
 -----------------------------
-Subtotal                1600.0
-Shipping                0.0
-Amount                  1600.0
-Current balance         8400.0
+Subtotal                1000.0
+Shipping                288.0
+Amount                  1288.0
+Current balance         9288.0
 Process finished with exit code 0

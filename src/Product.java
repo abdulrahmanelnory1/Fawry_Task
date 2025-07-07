@@ -3,9 +3,9 @@ import java.util.Date;
 
 public class Product {
 
-    String name;
-    double price;
-    Integer quantity;
+    private String name;
+    private double price;
+    private Integer quantity;
 
     /** Initialize products which are not expire and don`t require shipping. */
     public Product(String name, double price, Integer quantity) {
@@ -28,5 +28,7 @@ public class Product {
         return this.name;
     }
 
-
+    public void updateQuantity(Integer quantity) {
+        this.quantity -= quantity;
+    }
 }
